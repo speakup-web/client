@@ -37,7 +37,7 @@ export const tatacara = [
 export const contact = [
     {
         title: 'Kantor SpeakUp!',
-        desc: 'Jl. Gubernur Suryo, Kota Surabaya',
+        desc: 'Jl. Raya ITS, Kota Surabaya',
         type: 'kantor'
     },
     {

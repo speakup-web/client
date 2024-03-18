@@ -1,55 +1,85 @@
-import React, { useState } from 'react';
-import DatePicker from 'react-datepicker';
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { FormProvider } from 'react-hook-form';
 import 'react-datepicker/dist/react-datepicker.css';
 import LogoForm from './../assets/logo/LogoForm.svg';
+import { Input } from './forms/Input';
+import { InputDatePicker } from './forms/InputDatePicker';
+import { InputTextArea } from './forms/InputTextArea';
 
 export function Form() {
-    const [selectedDate, setSelectedDate] = useState(null);
+    const methods = useForm()
+
+    const onSubmit = methods.handleSubmit(data => {
+        console.log(data)
+    })
+
     return (
         <section className="max-w-screen-lg mx-auto mt-1 px-4 sm:px-6">
-            <form className='w-full max-w-[920px] bg-white rounded-lg mx-auto md:flex md:flex-col mb-16 mt-1'>
-                <div className="flex justify-center items-center">
-                    <img src={LogoForm} alt="Logo Form" className="max-w-full h-auto"/>
-                </div>
-                <div className="mb-5 grid grid-cols-1">
-                    <label htmlFor="name" className="mb-2 text-sm font-medium text-gray-900 dark:text-blue-400 ml-1">Name</label>
-                    <input type="text" id="name" className="bg-gray-50 border border-gray-300 text-blue-400 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5  dark:border-blue-300 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500 datepicker-input" placeholder="Masukkan Nama" required />
-                </div>
-                <div className="mb-5 grid grid-cols-1">
-                    <label htmlFor="email" className="mb-2 text-sm font-medium text-gray-900 dark:text-blue-400 ml-1">Email</label>
-                    <input type="email" id="email" className="bg-gray-50 border border-gray-300 text-blue-400 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5  dark:border-blue-300 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500 datepicker-input" placeholder="Masukkan Email" required />
-                </div>
-                <div className="mb-5 grid grid-cols-1">
-                    <label htmlFor="telepon" className="mb-2 text-sm font-medium text-gray-900 dark:text-blue-400 ml-1">No. Telp</label>
-                    <input type="text" id="telepon" className="bg-gray-50 border border-gray-300 text-blue-400 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5  dark:border-blue-300 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500 datepicker-input" placeholder="Masukkan No. Telp" required />
-                </div>
-                <div className="mb-5 grid grid-cols-1">
-                    <label htmlFor="tempat" className="mb-2 text-sm font-medium text-gray-900 dark:text-blue-400 ml-1">Tempat Kejadian</label>
-                    <input type="text" id="tempat" className="bg-gray-50 border border-gray-300 text-blue-400 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5  dark:border-blue-300 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500 datepicker-input" placeholder="Masukkan Tempat Kejadian" required />
-                </div>
-                <div className="mb-5 grid grid-cols-1">
-                    <label htmlFor="tempat" className="mb-2 text-sm font-medium text-gray-900 dark:text-blue-400 ml-1">Tanggal</label>
-                    <DatePicker
-                        selected={selectedDate}
-                        onChange={date => setSelectedDate(date)}
-                        className="bg-gray-50 border border-gray-300 text-blue-400 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5  dark:border-blue-300 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500 datepicker-input"
-                        placeholderText="DD-MM-YY"
-                        required
-                    />
-                </div>
-                <div className="mb-5 grid grid-cols-1">
-                    <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-400 ml-1">Detail Kejadian</label>
-                    <textarea id="message" rows="4" className="block p-2.5 w-full text-sm text-gray-300 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-white dark:border-blue-300 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Masukkan Detail Kejadian.." required ></textarea>
-                </div>
-                <div>
-                    <label className="ml-1 block mb-2 text-sm font-medium text-gray-900 dark:text-blue-400" htmlFor="user_avatar">Upload Bukti</label>
-                    <input className="block w-full text-sm text-blue-400 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-white dark:border-blue-400 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file"/>
-                    <div className="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help"></div>
-                </div>
-                <div className='mt-6'>
-                    <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
-                </div>
-            </form>
+            <FormProvider {...methods}>
+                <form
+                    onSubmit={e => e.preventDefault()}
+                    className='w-full max-w-[920px] bg-white rounded-lg mx-auto md:flex md:flex-col mb-16 mt-1'
+                >
+                    <div className="flex justify-center items-center">
+                        <img src={LogoForm} alt="Logo Form" className="md:w-auto max-w-60 h-auto" />
+                    </div>
+                    <div className="mb-5 grid grid-cols-1">
+                        <Input
+                            label="Nama"
+                            type="text"
+                            id="name"
+                            placeholder="Masukkan nama"
+                        />
+                    </div>
+                    <div className="mb-5 grid grid-cols-1">
+                        <Input
+                            label="Email"
+                            type="email"
+                            id="email"
+                            placeholder="Masukkan Email"
+                        />
+                    </div>
+                    <div className="mb-5 grid grid-cols-1">
+                        <Input
+                            label="No. Telp"
+                            type="text"
+                            id="telp"
+                            placeholder="Masukkan No. Telp"
+                        />
+                    </div>
+                    <div className="mb-5 grid grid-cols-1">
+                        <Input
+                            label="Tempat Kejadian"
+                            type="text"
+                            id="tempat"
+                            placeholder="Masukkan Tempat Kejadian"
+                        />
+                    </div>
+                    <div className="mb-5 grid grid-cols-1">
+                        <InputDatePicker label="Tanggal Kejadian" id="date" />
+                    </div>
+                    <div className="mb-5 grid grid-cols-1">
+                        <InputTextArea
+                            label="Detail Kejadian"
+                            id="message"
+                            placeholder="Masukkan Detail Kejadian"
+                        />
+                    </div>
+                    <div>
+                        <Input
+                            label="Upload Bukti"
+                            id="bukti"
+                            type="file"
+                            placeholder="Upload Bukti Kejadian"
+                        />
+                    </div>
+                    <div className='mt-6 gap-4'>
+                        <button type="submit" onClick={onSubmit} className="text-white hover:bg-blue-800 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 my-4 mr-4 text-center dark:hover:bg-blue-700 bg-darkBlue">Submit</button>
+                        <button className="text-white focus:ring-blue-950 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 my-4 text-center bg-white border border-blue-950 darkBlue">Cancel</button>
+                    </div>
+                </form>
+            </FormProvider>
         </section>
     );
 }

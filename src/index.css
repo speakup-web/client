@@ -113,6 +113,14 @@
     color: #39A7FF;
 }
 
+.bg-darkBlue {
+  background-color: #054578;
+}
+
+.darkBlue {
+  color: #054578;
+}
+
 .bg-primaryBlue {
     background-color: #39A7FF;
 }
@@ -121,3 +129,6 @@
     background-color: #EFF9FF;
 }
 
+.bg-lightGrey {
+  background-color: #F8F9F9;
+}

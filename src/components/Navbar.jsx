@@ -82,7 +82,7 @@ export function Navbar() {
                             </div>
                             <div className="py-6 space-x-3">
                                 <a
-                                    href="#"
+                                    href="/lapor"
                                     className="bg-customRed text-white py-2 px-4 rounded-full"
                                 >
                                     Buat Laporan

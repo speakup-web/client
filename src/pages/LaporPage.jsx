@@ -11,7 +11,7 @@ export default function Lapor() {
         <main>
           <Hero />
           <Form />
-          <ContactUs/>
+          <ContactUs bgColor='bg-lightGrey'/>
         </main>
         <Footer />
       </>
