@@ -12,7 +12,7 @@ export function Navbar() {
         <>
             <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
                 <div className="flex lg:flex-1">
-                    <a href="#" className="-m-1.5 p-1.5">
+                    <a href="/" className="-m-1.5 p-1.5">
                         <img
                             className="h-20 w-auto"
                             src={Logo}
@@ -37,7 +37,7 @@ export function Navbar() {
                         </a>
                     ))}
                     <a
-                        href="#"
+                        href="/lapor"
                         className="bg-customRed text-white inter-regular py-2 px-4 rounded-full"
                     >
                         Buat Laporan

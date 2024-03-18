@@ -6,7 +6,7 @@ export function ContactUs() {
   return (
     <section className="bg-white py-16 text-center" id='contact-us'>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10"> {/* Use grid layout and media query */}
-        <div className="flex flex-col text-left max-w-md px-20">
+        <div className="flex flex-col text-left max-w-md md:ml-auto px-4"> {/* Move the first column to the right on larger devices */}
           <h1 className="text-2xl font-bold mb-4 josefin-sans-bold primaryBlue">
             SpeakUp<span className="red">!</span>
           </h1>
@@ -17,7 +17,7 @@ export function ContactUs() {
           ))}
         </div>
 
-        <div className="flex flex-col text-start px-20"> {/* Remove margin for mobile */}
+        <div className="flex flex-col text-start px-4"> {/* No need to adjust the second column */}
           <h2 className="text-xl font-semibold mb-3 inter-medium">Hubungi Kami</h2>
           <p className="mb-2 pb-2 nunito-light">
             Lebih lanjut jika Anda membutuhkan bantuan kami, hubungi kontak berikut :
