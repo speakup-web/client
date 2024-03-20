@@ -42,7 +42,7 @@ export function Navbar() {
                     >
                         Buat Laporan
                     </a>
-                    <a href="#" className="py-2 px-5 border rounded-full text-white inter-regular">
+                    <a href="/login" className="py-2 px-5 border rounded-full text-white inter-regular">
                         Sign In
                     </a>
                 </div>

@@ -76,7 +76,7 @@ export function Form() {
                     </div>
                     <div className='mt-6 gap-4'>
                         <button type="submit" onClick={onSubmit} className="text-white hover:bg-blue-800 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 my-4 mr-4 text-center dark:hover:bg-blue-700 bg-darkBlue">Submit</button>
-                        <button className="text-white focus:ring-blue-950 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 my-4 text-center bg-white border border-blue-950 darkBlue">Cancel</button>
+                        <button className="text-white focus:ring-blue-950 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 my-4 text-center bg-white border border-blue-950 darkBlue"><a href='/'>Cancel</a></button>
                     </div>
                 </form>
             </FormProvider>

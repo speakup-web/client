@@ -1,7 +1,4 @@
-import { useFormContext } from "react-hook-form";
-
 export const InputTextArea = ({ label, type, id, placeholder }) => {
-    const { register } = useFormContext();
 
     return (
         <div className="flex flex-col w-full gap-2">
@@ -15,12 +12,6 @@ export const InputTextArea = ({ label, type, id, placeholder }) => {
                 rows="4"
                 className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-white dark:border-blue-300 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder={placeholder}
-                {...register(label, {
-                    required: {
-                        value: true,
-                        message: 'required',
-                    },
-                })}
             />
         </div>
     )
