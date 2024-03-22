@@ -4,7 +4,7 @@ import { FormProvider } from 'react-hook-form';
 import 'react-datepicker/dist/react-datepicker.css';
 import LogoForm from './../assets/logo/LogoForm.svg';
 import { Input } from './forms/Input';
-import { InputDatePicker } from './forms/InputDatePicker';
+import { DatePicker } from './forms/DatePicker';
 import { InputTextArea } from './forms/InputTextArea';
 
 
@@ -60,7 +60,7 @@ export function Form() {
                         />
                     </div>
                     <div className="mb-5 grid grid-cols-1">
-                        <InputDatePicker label="Tanggal Kejadian" id="date" />
+                        <DatePicker label="Tanggal Kejadian" id="date" />
                     </div>
                     <div className="mb-5 grid grid-cols-1">
                         <InputTextArea
