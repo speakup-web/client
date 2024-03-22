@@ -87,7 +87,7 @@ export function Navbar() {
                                 >
                                     Buat Laporan
                                 </a>
-                                <a href="#" className="py-3 px-4 border rounded-full">
+                                <a href="/login" className="py-3 px-4 border rounded-full">
                                     Sign In
                                 </a>
                             </div>
