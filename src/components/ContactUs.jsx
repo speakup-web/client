@@ -40,7 +40,7 @@ export function ContactUs(props) {
                   <HiOutlinePhone className="h-5 w-5 mr-2 text-red-500" />
                 )}
                 <div className="space-y-2 py-1">
-                  <p className="text-gray-900 font-bold">{contactus.title}</p>
+                  <p className="text-gray-900 font-semibold">{contactus.title}</p>
                   <p className="text-gray-700">{contactus.desc}</p>
                 </div>
               </div>
