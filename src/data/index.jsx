@@ -6,9 +6,9 @@ export const speakup = [
 ]
 
 export const navigation = [
-    { name: 'About', href: '#about' },
-    { name: 'Information', href: '#information' },
-    { name: 'Contact Us', href: '#contact-us' },
+    { name: 'About', href: window.location.pathname === '/' ? '/#about' : '/' },
+    { name: 'Information', href: window.location.pathname === '/' ? '/#information' : '/' },
+    { name: 'Contact Us', href: window.location.pathname === '/' ? '/#contact-us' : '/' },
 ]
 
 export const tatacara = [

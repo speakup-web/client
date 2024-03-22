@@ -7,12 +7,15 @@ import { Input } from './forms/Input';
 import { InputDatePicker } from './forms/InputDatePicker';
 import { InputTextArea } from './forms/InputTextArea';
 
+
 export function Form() {
     const methods = useForm()
 
     const onSubmit = methods.handleSubmit(data => {
-        console.log(data)
-    })
+        console.log(data);
+        // Navigasi ke halaman "Laporan Terkirim" dengan menambahkan hash "#LaporanTerkirim1"
+        window.location.href = '/laporan-terkirim#LaporanTerkirim1';
+    });
 
     return (
         <section className="max-w-screen-lg mx-auto mt-1 px-4 sm:px-6">
