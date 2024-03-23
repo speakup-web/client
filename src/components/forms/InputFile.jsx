@@ -18,7 +18,7 @@ export default function FileInput({ label, id }) {
                 onClick={handleFileInputChange}
             >
                 <HiOutlineCloudUpload className="w-6 h-6" />
-                <span>Choose some files to upload</span>
+                <span>Upload Bukti Kejadian</span>
                 <input type="file" id="fileInput" className="hidden" />
             </div>
         </div>

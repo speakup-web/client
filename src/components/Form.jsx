@@ -29,7 +29,7 @@ export function Form() {
                     </div>
                     <div className="mb-5 grid grid-cols-1">
                         <Input
-                            label="Nama"
+                            label="Nama Pelapor"
                             type="text"
                             id="name"
                             placeholder="Masukkan nama"
@@ -37,7 +37,7 @@ export function Form() {
                     </div>
                     <div className="mb-5 grid grid-cols-1">
                         <Input
-                            label="Email"
+                            label="Email Pelapor"
                             type="email"
                             id="email"
                             placeholder="Masukkan Email"
@@ -45,7 +45,7 @@ export function Form() {
                     </div>
                     <div className="mb-5 grid grid-cols-1">
                         <Input
-                            label="No. Telp"
+                            label="No. Telp Pelapor"
                             type="text"
                             id="telp"
                             placeholder="Masukkan No. Telp"
