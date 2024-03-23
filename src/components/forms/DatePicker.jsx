@@ -64,10 +64,10 @@ export function DatePicker({label, id}) {
             }}
             components={{
               IconLeft: ({ ...props }) => (
-                <HiChevronLeft {...props} className="h-4 w-4 stroke-2" />
+                <HiChevronLeft {...props} className="h-4 w-4" />
               ),
               IconRight: ({ ...props }) => (
-                <HiChevronRight {...props} className="h-4 w-4 stroke-2" />
+                <HiChevronRight {...props} className="h-4 w-4" />
               ),
             }}
           />
