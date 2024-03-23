@@ -6,6 +6,7 @@ import LogoForm from './../assets/logo/LogoForm.svg';
 import { Input } from './forms/Input';
 import { InputTextArea } from './forms/InputTextArea';
 import { DatePicker } from './forms/DatePicker';
+import FileInput from './forms/InputFile';
 
 export function Form() {
     const methods = useForm()
@@ -68,16 +69,11 @@ export function Form() {
                             placeholder="Masukkan Detail Kejadian"
                         />
                     </div>
-                    <div>
-                        <Input
-                            label="Upload Bukti"
-                            id="bukti"
-                            type="file"
-                            placeholder="Upload Bukti Kejadian"
-                        />
+                    <div className="mb-5 grid grid-cols-1">
+                        <FileInput label="Upload Bukti" id="bukti" />
                     </div>
                     <div className='mt-6 gap-4'>
-                        <button type="submit" onClick={onSubmit} className="text-white hover:bg-blue-800 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 my-4 mr-4 text-center dark:hover:bg-blue-700 bg-darkBlue">Submit</button>
+                        <button type="submit" onClick={onSubmit} className="text-white hover:bg-blue-800 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 my-4 mr-4 text-center dark:hover:bg-blue-700 bg-darkBlue">Kirim Pengaduan</button>
                         <button className="text-white focus:ring-blue-950 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 my-4 text-center bg-white border border-blue-950 darkBlue"><a href='/'>Cancel</a></button>
                     </div>
                 </form>
