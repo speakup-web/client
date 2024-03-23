@@ -1,7 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { FormProvider } from 'react-hook-form';
-import 'react-datepicker/dist/react-datepicker.css';
 import LogoForm from './../assets/logo/LogoForm.svg';
 import { Input } from './forms/Input';
 import { InputTextArea } from './forms/InputTextArea';

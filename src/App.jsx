@@ -3,6 +3,7 @@ import Home from "./pages/HomePage";
 import Lapor from "./pages/LaporPage";
 import SignInPage from "./pages/SignInPage";
 import LaporanTerkirimPage from "./pages/LaporanTerkirimPage";
+import PantauPage from "./pages/PantauPage";
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
           <Route path="/lapor" element={<Lapor />} />
           <Route path="/login" element={<SignInPage />} />
           <Route path="/laporan-terkirim" element={<LaporanTerkirimPage />} />
+          <Route path="/pantau-pengaduan" element={<PantauPage />} />
         </Routes>
     </div>
   );
