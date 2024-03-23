@@ -1,7 +1,7 @@
 import React from "react";
 import { Input } from "./forms/Input";
 import Left from './../assets/illustrations/Left.png'
-import LeftFull from './../assets/illustrations/Left full.png'
+import LeftFull from './../assets/illustrations/Left full ver.3.png'
 
 export function SignIn() {
     return (
