@@ -1,4 +1,4 @@
-export function Hero() {
+export default  function Hero() {
     return (
         <div className="bg-hero">
             <div className="relative isolate py-6 px-6 pt-14 lg:px-8">
