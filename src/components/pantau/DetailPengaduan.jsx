@@ -12,7 +12,7 @@ export default function DetailPengaduan() {
 
     return (
         <>
-            <div id="accordionExample">
+            <div id="detail-pengaduan">
                 {pengaduan.filter(detail => detail.id === 1).map((detail, index) => (
                     <div key={index} className="border border-neutral-200 bg-white dark:border-neutral-600 rounded-t-lg">
                         <h2 className="mb-0" id="headingOne">

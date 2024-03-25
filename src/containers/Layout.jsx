@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import routes from './../routes';
 
 import Header from './../components/Header';
@@ -8,8 +8,6 @@ import Hero from '../components/Hero';
 import { ContactUs } from '../components/ContactUs';
 
 function Layout() {
-  const location = useLocation();
-
   return (
     <>
       <Header />
