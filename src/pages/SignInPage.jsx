@@ -21,7 +21,6 @@ export default function SignInPage() {
                     />
                 </div>
 
-
                 {/* <!-- Right column container with form --> */}
                 <div className="md:w-6/12 lg:w-5/12 xl:w-4/12 px-6 md:px-12 md:mt-6 lg:mt-10 md:mr-0 xl:mr-32">
                     <form>

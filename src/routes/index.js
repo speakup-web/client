@@ -1,11 +1,11 @@
 import { lazy } from 'react'
-import PantauPage from '../pages/PantauPage'
 
 // use lazy for better code splitting, a.k.a. load faster
 const Home = lazy(() => import('./../pages/HomePage'))
 const Lapor = lazy(() => import('../pages/LaporPage'))
 const LaporanTerkirim = lazy(() => import('../pages/LaporanTerkirimPage'))
 const SignIn = lazy(() => import('../pages/SignInPage'))
+const PantauPengaduan = lazy(() => import('../pages/PantauPengaduanPage'))
 
 const routes = [
   {
@@ -22,7 +22,7 @@ const routes = [
   },
   {
     path: '/pantau-pengaduan',
-    component: PantauPage
+    component: PantauPengaduan
   },
   {
     path: '/login',

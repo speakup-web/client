@@ -1,6 +1,6 @@
 import { LaporanTerkirim } from '../components/LaporanTerkirim'
 
-export default function Lapor() {
+export default function LaporanTerkirimPage() {
     return (
       <>
         <main>

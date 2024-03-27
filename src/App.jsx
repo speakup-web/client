@@ -2,7 +2,7 @@ import { lazy, Suspense } from "react";
 import Layout from "./containers/Layout";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SignInPage from "./pages/SignInPage";
-import PantauPage from "./pages/PantauPage";
+import PantauPengaduan from "./pages/PantauPengaduanPage";
 
 const Home = lazy(() => import('./pages/HomePage'));
 const Lapor = lazy(() => import('./pages/LaporPage'));
@@ -26,7 +26,7 @@ function App() {
           } />
           <Route path="pantau-pengaduan" element={
             <Suspense fallback={<div>Loading...</div>}>
-              <PantauPage />
+              <PantauPengaduan />
             </Suspense>
           } />
         </Route>
