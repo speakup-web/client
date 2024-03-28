@@ -7,6 +7,7 @@ import PantauPengaduan from "./pages/PantauPengaduanPage";
 const Home = lazy(() => import('./pages/HomePage'));
 const Lapor = lazy(() => import('./pages/LaporPage'));
 const LaporanTerkirim = lazy(() => import('./pages/LaporanTerkirimPage'));
+const Admin = lazy(() => import('./pages/AdminPage'));
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           } />
         </Route>
         <Route path="/login" element={<SignInPage />} />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
     </Router>
   );

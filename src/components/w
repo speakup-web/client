@@ -1,0 +1,109 @@
+{/*import React, { useState } from "react";
+import { TbLayoutSidebarRightExpand } from "react-icons/tb";
+import { AiOutlineHome } from "react-icons/ai";
+import { LuUsers2 } from "react-icons/lu";
+import { TbMailDown } from "react-icons/tb";
+import { LuClipboardList } from "react-icons/lu";
+import { FiSettings } from "react-icons/fi";
+import { Link } from "react-router-dom";
+import { IoMdArrowDropdown } from "react-icons/io";
+import Logo2 from './../assets/logo/big logo - blue red.svg';
+
+function Navbar() {
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  const toggleDropdown = () => {
+    setShowDropdown(!showDropdown);
+  };
+
+  return (
+    <div className="bg-white h-16 flex items-center justify-between px-4 text-gray-700 shadow-md">
+      <div>
+        <img
+          className="h-16 w-auto ml-3"
+          src={Logo2}
+          alt="SpeakUp!"
+        />
+      </div>
+      <div className="flex items-center">
+        <LuUsers2 className="mr-1 rounde" />
+        <span className="text-gray-700 mr-2">Atmin</span>
+        <IoMdArrowDropdown
+          className="h-6 w-6 cursor-pointer"
+          onClick={toggleDropdown}
+        />
+        {showDropdown && (
+          <div className="absolute top-full right-0 mt-2 w-40 bg-white rounded-md shadow-lg">
+            <p className="p-2 hover:bg-gray-100 cursor-pointer">Profile</p>
+            <p className="p-2 hover:bg-gray-100 cursor-pointer">Log Out</p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+export function Sidebars() {
+  const menus = [
+    { name: "Home", link: "#", icon: AiOutlineHome },
+    { name: "Messages", link: "#", icon: TbMailDown },
+    { name: "Clipboard", link: "#", icon: LuClipboardList },
+    { name: "Users", link: "#", icon: LuUsers2 },
+    { name: "Settings", link: "#", icon: FiSettings },
+  ];
+  const [open, setOpen] = useState(true);
+
+  return (
+    <>
+      <Navbar />
+      <section className="flex gap-6">
+        <div
+          className={`bg-white min-h-screen ${
+            open ? "w-72" : "w-16"
+          } duration-500 text-gray-400 px-4`}
+          style={{ boxShadow: "0px 6px 8px rgba(0, 0, 0, 0.1)" }}
+        >
+          <div className="py-3 flex justify-end">
+            <TbLayoutSidebarRightExpand
+              size={26}
+              className="cursor-pointer"
+              onClick={() => setOpen(!open)}
+            />
+          </div>
+          <div className="mt-4 ml flex flex-col gap-4 relative">
+            {menus?.map((menu, i) => (
+              <Link
+                to={menu?.link}
+                key={i}
+                className={`${
+                  menu?.margin && "mt-5"
+                } group flex items-center text-sm gap-3.5 font-medium p-2 hover:bg-[#054578] rounded-md`}
+              >
+                <div>{React.createElement(menu?.icon, { size: "20" })}</div>
+                <h2
+                  style={{
+                    transitionDelay: `${i + 3}00ms`,
+                  }}
+                  className={`whitespace-pre duration-500 ${
+                    !open && "opacity-0 translate-x-28 overflow-hidden"
+                  }`}
+                >
+                  {menu?.name}
+                </h2>
+                <h2
+                  className={`${
+                    open && "hidden"
+                  } absolute left-48 bg-gray-300 font-semibold whitespace-pre text-gray-900 rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 group-hover:py-1 group-hover:left-14 group-hover:duration-300 group-hover:w-fit  `}
+                >
+                  {menu?.name}
+                </h2>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
+export default Sidebars;*/}

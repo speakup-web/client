@@ -6,6 +6,7 @@ const Lapor = lazy(() => import('../pages/LaporPage'))
 const LaporanTerkirim = lazy(() => import('../pages/LaporanTerkirimPage'))
 const SignIn = lazy(() => import('../pages/SignInPage'))
 const PantauPengaduan = lazy(() => import('../pages/PantauPengaduanPage'))
+const Admin = lazy(() => import('../pages/AdminPage'))
 
 const routes = [
   {
@@ -27,6 +28,10 @@ const routes = [
   {
     path: '/login',
     component: SignIn
+  },
+  {
+    path: '/Admin',
+    component: Admin
   }
 ]
 
