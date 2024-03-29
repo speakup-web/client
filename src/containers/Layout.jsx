@@ -1,11 +1,11 @@
 import { Routes, Route } from 'react-router-dom';
 import routes from './../routes';
 
-import Header from './../components/Header';
+import Header from './../components/ui/Header';
 import Main from './Main';
-import Footer from '../components/Footer';
-import Hero from '../components/Hero';
-import { ContactUs } from '../components/ContactUs';
+import Footer from '../components/ui/Footer';
+import Hero from '../components/ui/Hero';
+import { ContactUs } from '../components/ui/ContactUs';
 
 function Layout() {
   return (

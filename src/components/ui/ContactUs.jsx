@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { HiOutlineHome, HiOutlineMail, HiOutlinePhone } from 'react-icons/hi';
-import { speakup } from "../data";
-import { contact } from "../data";
+import { speakup } from "../../data";
+import { contact } from "../../data";
 
 ContactUs.propTypes = {
   bgColor: PropTypes.string,

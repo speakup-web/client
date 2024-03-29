@@ -2,12 +2,12 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { FormProvider } from 'react-hook-form';
 import LogoForm from './../assets/logo/LogoForm.svg';
-import { Input } from './forms/Input';
-import { InputTextArea } from './forms/InputTextArea';
-import { DatePicker } from './forms/DatePicker';
-import FileInput from './forms/InputFile';
+import { Input } from '../components/forms/Input';
+import { InputTextArea } from '../components/forms/InputTextArea';
+import { DatePicker } from '../components/forms/DatePicker';
+import FileInput from '../components/forms/InputFile';
 
-export function Form() {
+export default function Form() {
     const methods = useForm()
 
     const onSubmit = methods.handleSubmit(data => {

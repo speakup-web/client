@@ -1,3 +1,30 @@
+// halaman data.jsx
+import { AiOutlineHome } from "react-icons/ai";
+import { TbMailDown } from "react-icons/tb";
+import { LuClipboardList } from "react-icons/lu";
+import { LuUsers2 } from "react-icons/lu";
+import { FiSettings } from "react-icons/fi";
+import { HomeIcon, UsersIcon } from '@heroicons/react/24/outline';
+
+export const sidebarMenu = [
+  { name: "Home", link: "/dashboard", icon: <AiOutlineHome size={20} /> },
+  { name: "Daftar Pengaduan", link: "/", icon: <TbMailDown size={20} /> },
+  { name: "Status Pengaduan", link: "/", icon: <LuClipboardList size={20} /> },
+  { name: "Daftar Satgas", link: "/", icon: <LuUsers2 size={20} /> },
+];
+
+export const sidebarNavigation = [
+    { name: 'Dashboard', href: '/dashboard/home', icon: HomeIcon, current: true },
+    { name: 'Daftar Pengaduan', href: '#', icon: TbMailDown, current: false },
+    { name: 'Status Pengaduan', href: '#', icon: LuClipboardList, current: false },
+    { name: 'Daftar Satgas', href: '#', icon: UsersIcon, current: false },
+];
+
+export const userNavigation = [
+    { name: 'Your Profile', href: '#' },
+    { name: 'Sign out', href: '#' },
+]
+
 export const speakup = [
     {
         title: 'SpeakUp!',

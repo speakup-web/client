@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import Logo from './../assets/logo/logo - white red.svg'
-import Logo2 from './../assets/logo/big logo - blue red.svg'
-import { navigation } from "../data";
+import Logo from './../../../assets/logo/logo - white red.svg'
+import Logo2 from './../../../assets/logo/big logo - blue red.svg'
+import { navigation } from "../../../data";
 
 export function Navbar() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
