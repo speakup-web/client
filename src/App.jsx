@@ -2,12 +2,13 @@ import { lazy, Suspense } from "react";
 import Layout from "./containers/Layout";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SignInPage from "./pages/SignInPage";
-import PantauPengaduan from "./pages/PantauPengaduanPage";
+import PantauPengaduan from "./pages/PantauPengaduan";
+import DashboardLayout from "./containers/dashboard/DashboardLayout";
 
 const Home = lazy(() => import('./pages/HomePage'));
-const Lapor = lazy(() => import('./pages/LaporPage'));
-const LaporanTerkirim = lazy(() => import('./pages/LaporanTerkirimPage'));
-const Admin = lazy(() => import('./pages/AdminPage'));
+const FormPengaduan = lazy(() => import('./pages/FormPengaduan'));
+const LaporanTerkirim = lazy(() => import('./pages/LaporanTerkirim'));
+const DashboardHome = lazy(() => import('./pages/dashboard/DashboardHome'));
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
           <Route index element={<Home />} /> {/* Specific index route for Home */}
           <Route path="lapor" element={
             <Suspense fallback={<div>Loading...</div>}>
-              <Lapor />
+              <FormPengaduan />
             </Suspense>
           } />
           <Route path="laporan-terkirim" element={
@@ -32,9 +33,11 @@ function App() {
           } />
         </Route>
         <Route path="/login" element={<SignInPage />} />
-        <Route path="/admin" element={<Admin />} />
+        <Route path="/dashboard" element={<DashboardLayout />}>
+          <Route index element={<DashboardHome />} />
+        </Route>
       </Routes>
-    </Router>
+    </Router >
   );
 }
 
