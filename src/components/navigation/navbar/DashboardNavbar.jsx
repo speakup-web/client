@@ -1,17 +1,11 @@
-import React from 'react'
-import ProfileMenu from '../../profile/ProfileMenu'
-import { Search } from '../../forms/Search';
+import React from 'react';
+import ProfileMenu from '../../profile/ProfileMenu';
 
 function DashboardNavbar() {
     return (
         <div className="sticky top-0 z-10 flex h-16 flex-shrink-0 bg-white shadow">
             <div className="flex flex-1 justify-between px-4">
-                <div className="flex flex-1">
-                    <form className="flex w-full md:ml-0" action="#" method="GET">
-                        <Search label="Search" id="search" placeholder="Search" type="search" name="search"/>
-                    </form>
-                </div>
-                <div className="ml-4 flex items-center md:ml-6">
+                <div className="ml-auto flex items-center"> {/* Menggunakan ml-auto untuk meletakkan profile di sebelah kanan */}
                     {/* Profile dropdown */}
                     <ProfileMenu/>
                 </div>
