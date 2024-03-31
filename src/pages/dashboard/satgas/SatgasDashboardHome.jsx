@@ -2,7 +2,6 @@ import { HiArrowNarrowRight } from "react-icons/hi";
 import { UsersIcon, InboxArrowDownIcon, ArrowPathIcon , CheckCircleIcon  } from '@heroicons/react/24/outline';
 
 import DaftarPengaduanTerbaruTable from "../../../components/tables/DaftarPengaduanTerbaru";
-import DaftarSatgasTable from "../../../components/tables/DaftarSatgasTable";
 import DaftarPengaduanDiprosesTable from "../../../components/tables/DaftarPengaduanDiprosesTable";
 import Card from "../../../components/Cards/Card";
 

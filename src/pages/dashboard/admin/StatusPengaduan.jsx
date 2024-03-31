@@ -1,7 +1,3 @@
-import { FormProvider } from "react-hook-form";
-import { Input } from "../../../components/forms/Input";
-import DaftarSatgasTable from "../../../components/tables/DaftarSatgasTable";
-import { FormSatgas } from "../../../components/FormSatgas";
 import StatusTab from "../../../components/tabs/StatusTab";
 
 export default function DaftarSatgas() {
