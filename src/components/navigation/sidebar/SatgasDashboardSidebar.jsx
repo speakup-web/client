@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Bars3BottomLeftIcon } from '@heroicons/react/24/outline'
 import SpeakUp from './../../../assets/sidebars/speakup datar.svg';
-import { sidebarMenu } from "../../../data";
+import { sidebarMenuSatgas } from "../../../data";
 
-export default function DashboardSidebar() {
+export default function SatgasDashboardSidebar() {
   const [open, setOpen] = useState(true);
 
   return (
@@ -25,7 +25,7 @@ export default function DashboardSidebar() {
         </div>
 
         <div className="mt-4 flex flex-col gap-4 relative">
-          {sidebarMenu.map((menu, i) => (
+          {sidebarMenuSatgas.map((menu, i) => (
             <a
               href={menu.link}
               key={i}

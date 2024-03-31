@@ -1,9 +1,9 @@
 import React from "react";
-import { Input } from "./../components/forms/Input";
+import { Input } from "../components/forms/Input";
 import Left from './../assets/illustrations/Left.png'
 import LeftFull from './../assets/illustrations/Left full ver.3.png'
 
-export default function SignInPage() {
+export default function SignIn() {
     return (
         <section className="h-full w-full bg-gradient-to-bl from-white to-blue-50">
             <div className="flex flex-wrap items-center justify-center lg:justify-between">

@@ -7,10 +7,16 @@ import { FiSettings } from "react-icons/fi";
 import { HomeIcon, UsersIcon } from '@heroicons/react/24/outline';
 
 export const sidebarMenu = [
-  { name: "Home", link: "/dashboard", icon: <AiOutlineHome size={20} /> },
-  { name: "Daftar Pengaduan", link: "/", icon: <TbMailDown size={20} /> },
-  { name: "Status Pengaduan", link: "/", icon: <LuClipboardList size={20} /> },
-  { name: "Daftar Satgas", link: "/", icon: <LuUsers2 size={20} /> },
+    { name: "Home", link: "/dashboard/admin", icon: <AiOutlineHome size={20} /> },
+    { name: "Daftar Pengaduan", link: "/dashboard/admin/daftar-pengaduan", icon: <TbMailDown size={20} /> },
+    { name: "Status Pengaduan", link: "/dashboard/admin/status-pengaduan", icon: <LuClipboardList size={20} /> },
+    { name: "Daftar Satgas", link: "/dashboard/admin/daftar-satgas", icon: <LuUsers2 size={20} /> },
+];
+
+export const sidebarMenuSatgas = [
+    { name: "Home", link: "/dashboard/satgas", icon: <AiOutlineHome size={20} /> },
+    { name: "Daftar Pengaduan", link: "/dashboard/satgas/daftar-pengaduan", icon: <TbMailDown size={20} /> },
+    { name: "Status Pengaduan", link: "/dashboard/satgas/status-pengaduan", icon: <LuClipboardList size={20} /> },
 ];
 
 export const sidebarNavigation = [
@@ -93,7 +99,8 @@ export const pengaduan = [
             "inProgress": true,
             "done": true,
             "cancelled": false
-        }
+        },
+        createdAt: '2024-03-04'
     },
     {
         id: 2,
@@ -101,14 +108,71 @@ export const pengaduan = [
         email_pelapor: 'fiana@gmail.com',
         telp_pelapor: '08123457788',
         tempat_kejadian: 'Kelas PENS',
-        tanggal_kejadian: 'Senin, 23 Maret 2024',
+        tanggal_kejadian: 'Sabtu, 23 Maret 2024',
         detail_kejadian: 'Pada hari Senin, 23 Maret 2024 di Ruangan A, oleh sekelompok orang melakukan pembullyan',
         status_pengaduan: {
             "submited": true,
             "inProgress": false,
             "done": true,
             "cancelled": true
-        }
+        },
+        createdAt: '2024-03-23'
+    },
+    {
+        id: 3,
+        nama_pelapor: 'Alisa',
+        email_pelapor: 'alisa@gmail.com',
+        telp_pelapor: '08123456789',
+        tempat_kejadian: 'Ruangan A PENS',
+        tanggal_kejadian: 'Jumat, 1 April 2024',
+        detail_kejadian: 'Pengancaman dan Pemaksaan terhadap sekolompok orang',
+        status_pengaduan: {
+            "submited": true,
+            "inProgress": false,
+            "done": false,
+            "cancelled": false
+        },
+        createdAt: '2024-04-01' 
+    },
+    {
+        id: 4,
+        nama_pelapor: 'Toni',
+        email_pelapor: 'toni@gmail.com',
+        telp_pelapor: '08123456789',
+        tempat_kejadian: 'Virtual',
+        tanggal_kejadian: 'Jumat, 29 Maret 2024',
+        detail_kejadian: 'Pembullyan di grup kelas',
+        status_pengaduan: {
+            "submited": true,
+            "inProgress": false,
+            "done": false,
+            "cancelled": false
+        },
+        createdAt: '2024-03-29' 
+    },
+];
+
+
+export const satgas = [
+    {
+        nama: 'Kenzie Wistara',
+        email: 'kenzie@gmail.com'
+    },
+    {
+        nama: 'Fajar Wicaksono',
+        email: 'fajarw@gmail.com'
+    },
+    {
+        nama: 'Tiara Putri Ramadhani',
+        email: 'tiara@gmail.com'
+    },
+    {
+        nama: 'Denny Mahendra',
+        email: 'denny@gmail.com'
+    },
+    {
+        nama: 'Rizal Febri',
+        email: 'rizal@gmail.com'
     },
 ]
 
