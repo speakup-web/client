@@ -27,8 +27,7 @@ export const sidebarNavigation = [
 ];
 
 export const userNavigation = [
-    { name: 'Your Profile', href: '#' },
-    { name: 'Sign out', href: '#' },
+    { name: 'Sign out', href: '/' },
 ]
 
 export const speakup = [
