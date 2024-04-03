@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form';
 import LogoLaporan from './../assets/logo/Mail.svg';
 import { FaArrowRightLong } from "react-icons/fa6";
 
-export function LaporanTerkirim() {
+export default function LaporanTerkirim() {
     const methods = useForm();
 
     const handlePantau = () => {
@@ -10,7 +10,7 @@ export function LaporanTerkirim() {
     };
 
     return (
-        <section className="max-w-screen-lg mx-auto mt-20 px-4 sm:px-6 space-y-5" id='LaporanTerkirim1' {...methods}>
+        <section className="max-w-screen-lg mx-auto mt-20 px-4 sm:px-6 space-y-5" id='LaporanTerkirim1'>
             <h1 className="xl:text-4xl tracking-tight text-blue-950 sm:text-5xl text-center poppins-semibold">
                 Pengaduan Terkirim
             </h1>
