@@ -14,18 +14,6 @@ export default function DetailPengaduan() {
                             </h2>
                         </div>
                         <div className="px-5 py-4">
-                            <p className="mb-3 noto-sans-medium">Nama Pelapor</p>
-                            <p className="mb-6 noto-sans-light">
-                                {detail.nama_pelapor}
-                            </p>
-                            <p className="mb-3 noto-sans-medium">Email Pelapor</p>
-                            <p className="mb-6 noto-sans-light">
-                                {detail.email_pelapor}
-                            </p>
-                            <p className="mb-3 noto-sans-medium">No. Telp Pelapor</p>
-                            <p className="mb-6 noto-sans-light">
-                                {detail.telp_pelapor}
-                            </p>
                             <p className="mb-3 noto-sans-medium">Detail Kejadian</p>
                             <p className="mb-6 noto-sans-light">
                                 {detail.detail_kejadian}
