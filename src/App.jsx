@@ -40,7 +40,7 @@ function App() {
             </Suspense>
           } />
         </Route>
-        <Route path="/login" element={<SignIn />} />
+        <Route path="/login" element={<SignIn setAccessToken={setAccessToken} />} />
         <Route path="/dashboard" element={<DashboardLayout accessToken={accessToken} />}>
           <Route path="admin">
             <Route index element={<AdminDashboardHome />} />

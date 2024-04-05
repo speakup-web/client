@@ -4,11 +4,10 @@ import Left from './../assets/illustrations/Left.png'
 import LeftFull from './../assets/illustrations/Left full ver.3.png'
 import { login } from "../api/api";
 
-export default function SignIn() {
+export default function SignIn({ setAccessToken }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
-    const [accessToken, setAccessToken] = useState(null);
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
@@ -47,26 +46,6 @@ export default function SignIn() {
             setError("Login failed. An unexpected error occurred.");
         }
     };
-
-    // useEffect(() => {
-    //     if (accessToken) {
-    //         const accessTokenParts = accessToken.split(".");
-    //         if (accessTokenParts.length !== 3) {
-    //             console.error("Invalid access token format.");
-    //             setError("Invalid access token received.");
-    //             return;
-    //         }
-
-    //         try {
-    //             const decoded = atob(accessTokenParts[1]);
-    //             console.log("user:", decoded); // Parse decoded string as JSON
-
-    //         } catch (error) {
-    //             console.error("Error decoding access token:", error);
-    //             setError("Failed to decode access token. It might be corrupt.");
-    //         }
-    //     }
-    // }, [accessToken]);
 
     return (
         <section className="h-full w-full bg-gradient-to-bl from-white to-blue-50">
