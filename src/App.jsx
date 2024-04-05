@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useState } from "react";
 import Layout from "./containers/Layout";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -17,6 +17,8 @@ const SatgasDaftarPengaduan = lazy(() => import('./pages/dashboard/satgas/Daftar
 const SatgasStatusPengaduan = lazy(() => import('./pages/dashboard/satgas/StatusPengaduan'));
 
 function App() {
+  const [accessToken, setAccessToken] = useState(null);
+
   return (
     <Router>
       <Routes>
@@ -32,14 +34,14 @@ function App() {
               <LaporanTerkirim />
             </Suspense>
           } />
-          <Route path="pantau-pengaduan" element={
+          <Route path="pantau-pengaduan/:reportId" element={
             <Suspense fallback={<div>Loading...</div>}>
               <PantauPengaduan />
             </Suspense>
           } />
         </Route>
         <Route path="/login" element={<SignIn />} />
-        <Route path="/dashboard" element={<DashboardLayout />}>
+        <Route path="/dashboard" element={<DashboardLayout accessToken={accessToken} />}>
           <Route path="admin">
             <Route index element={<AdminDashboardHome />} />
             <Route path="daftar-pengaduan" element={<Suspense fallback={<div>Loading...</div>}>

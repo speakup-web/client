@@ -1,13 +1,18 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import routes from './../../routes';
 import DashboardNavbar from '../../components/navigation/navbar/DashboardNavbar';
 import DashboardContent from './DashboardContent';
 import DashboardSidebar from '../../components/navigation/sidebar/DashboardSidebar';
 import SatgasDashboardSidebar from '../../components/navigation/sidebar/SatgasDashboardSidebar';
 
-function DashboardLayout() {
+function DashboardLayout({ accessToken }) {
   const dashboardRoutes = routes.find(route => route.path === '/dashboard').routes;
+
+  // Check if accessToken is available before rendering the layout
+  if (!accessToken) {
+    return <Navigate to="/login" />;
+  }
 
   return (
     <div className="flex h-full bg-gray-100">
@@ -17,7 +22,13 @@ function DashboardLayout() {
           <Route
             key={i}
             path={`/${subRoute.path}`}
-            element={subRoute.path.startsWith('/admin') ? <DashboardSidebar /> : <SatgasDashboardSidebar />}
+            element={
+              subRoute.path.startsWith('/admin') ? (
+                <DashboardSidebar />
+              ) : (
+                <SatgasDashboardSidebar />
+              )
+            }
           />
         ))}
       </Routes>
@@ -31,11 +42,7 @@ function DashboardLayout() {
         <DashboardContent>
           <Routes>
             {dashboardRoutes.map((route, i) => (
-              <Route
-                key={i}
-                path={`/${route.path}`}
-                element={<route.component />}
-              />
+              <Route key={i} path={`/${route.path}`} element={<route.component />} />
             ))}
           </Routes>
         </DashboardContent>
