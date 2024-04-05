@@ -1,26 +1,54 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
-import { FormProvider } from 'react-hook-form';
+import React, { useState } from 'react';
+import { useForm, FormProvider } from 'react-hook-form';
 import LogoForm from './../assets/logo/LogoForm.svg';
 import { Input } from '../components/forms/Input';
 import { InputTextArea } from '../components/forms/InputTextArea';
-import { DatePicker } from '../components/forms/DatePicker';
-import FileInput from '../components/forms/InputFile';
+import { createIncidentReport } from '../api/api';
 
 export default function Form() {
-    const methods = useForm()
-
-    const onSubmit = methods.handleSubmit(data => {
-        console.log(data);
-        // Navigasi ke halaman "Laporan Terkirim" dengan menambahkan hash "#LaporanTerkirim1"
-        window.location.href = '/laporan-terkirim#LaporanTerkirim1';
+    const methods = useForm();
+    const [error, setError] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
+    const [incidentData, setIncidentData] = useState({
+        reporterName: '',
+        reporterEmail: '',
+        reporterPhone: '',
+        incidentLocation: '',
+        incidentDate: new Date(),
+        incidentDetail: ''
     });
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setIncidentData({
+            ...incidentData,
+            [name]: value
+        });
+    };
+
+    const onSubmit = async (data) => {
+        try {
+            setIsLoading(true);
+            const response = await createIncidentReport(data);
+            console.log('Incident report created:', response);
+        } catch (error) {
+            console.error('Error creating incident report:', error);
+            setError(error.message);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    if (isLoading) {
+        return <div>Loading...</div>;
+    }
 
     return (
         <section className="max-w-screen-lg mx-auto mt-1 px-4 sm:px-6">
             <FormProvider {...methods}>
                 <form
-                    onSubmit={e => e.preventDefault()}
+                    onSubmit={methods.handleSubmit(onSubmit)}
+                    noValidate
                     className='w-full max-w-[920px] bg-white rounded-lg mx-auto md:flex md:flex-col mb-16 mt-1'
                 >
                     <div className="flex justify-center items-center">
@@ -30,50 +58,70 @@ export default function Form() {
                         <Input
                             label="Nama Pelapor"
                             type="text"
-                            id="name"
+                            id="reporterName"
+                            name="reporterName"
                             placeholder="Masukkan nama"
+                            value={incidentData.reporterName}
+                            onChange={handleChange}
                         />
                     </div>
                     <div className="mb-5 grid grid-cols-1">
                         <Input
                             label="Email Pelapor"
                             type="email"
-                            id="email"
+                            id="reporterEmail"
+                            name="reporterEmail"
                             placeholder="Masukkan Email"
+                            value={incidentData.reporterEmail}
+                            onChange={handleChange}
                         />
                     </div>
                     <div className="mb-5 grid grid-cols-1">
                         <Input
-                            label="No. Telp Pelapor"
+                            label="Telp Pelapor"
                             type="text"
-                            id="telp"
-                            placeholder="Masukkan No. Telp"
+                            id="reporterPhone"
+                            name="reporterPhone"
+                            placeholder="No. Telp"
+                            value={incidentData.reporterPhone}
+                            onChange={handleChange}
                         />
                     </div>
                     <div className="mb-5 grid grid-cols-1">
                         <Input
                             label="Tempat Kejadian"
                             type="text"
-                            id="tempat"
+                            id="incidentLocation"
+                            name="incidentLocation"
                             placeholder="Masukkan Tempat Kejadian"
+                            value={incidentData.incidentLocation}
+                            onChange={handleChange}
                         />
                     </div>
                     <div className="mb-5 grid grid-cols-1">
-                        <DatePicker label="Tanggal Kejadian" id="date"/>
+                        <Input
+                            label="Tanggal Kejadian"
+                            type="date"
+                            id="incidentDate"
+                            name="incidentDate"
+                            value={incidentData.incidentDate}
+                            onChange={(date) => {
+                                setIncidentData({ ...incidentData, incidentDate: date });
+                            }}
+                        />
                     </div>
                     <div className="mb-5 grid grid-cols-1">
                         <InputTextArea
                             label="Detail Kejadian"
-                            id="message"
+                            id="incidentDetail"
+                            name="incidentDetail"
                             placeholder="Masukkan Detail Kejadian"
+                            value={incidentData.incidentDetail}
+                            onChange={handleChange}
                         />
                     </div>
-                    {/*<div className="mb-5 grid grid-cols-1">
-                        <FileInput label="Upload Bukti" id="bukti" />
-                        </div>*/
-                    }
                     <div className='mt-6 gap-4'>
-                        <button type="submit" onClick={onSubmit} className="text-white hover:bg-blue-800 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 my-4 mr-4 text-center dark:hover:bg-blue-700 bg-darkBlue">Kirim Pengaduan</button>
+                        <button type="submit" className="text-white hover:bg-blue-800 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 my-4 mr-4 text-center dark:hover:bg-blue-700 bg-darkBlue">Kirim Pengaduan</button>
                         <button className="text-white focus:ring-blue-950 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 my-4 text-center bg-white border border-blue-950 darkBlue"><a href='/'>Cancel</a></button>
                     </div>
                 </form>
