@@ -27,7 +27,7 @@ const routes = [
     component: LaporanTerkirim
   },
   {
-    path: '/pantau-pengaduan',
+    path: '/pantau-pengaduan/:reportId',
     component: PantauPengaduan
   },
   {

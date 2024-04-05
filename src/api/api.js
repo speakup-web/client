@@ -16,6 +16,28 @@ export const createIncidentReport = async (data) => {
     }
 };
 
+export const getIncidentReportById = async (id) => {
+    try {
+        const response = await apiClient.get(`/incident-reports/${id}`);
+        return response.data;
+    } catch (error) {
+        throw error.response;
+    }
+};
+
+export const getIncidentReport = async (accessToken) => {
+    try {
+        const response = await apiClient.get(`/incident-reports`, {
+            headers: {
+                Authorization: `Bearer ${accessToken}`
+            }
+        });
+        return response.data;
+    } catch (error) {
+        throw error.response;
+    }
+};
+
 export const login = async (email, password) => {
     try {
         const response = await apiClient.post('/auth/login', { email, password });

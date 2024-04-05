@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import LogoForm from './../assets/logo/LogoForm.svg';
 import { Input } from '../components/forms/Input';
 import { InputTextArea } from '../components/forms/InputTextArea';
@@ -7,6 +8,7 @@ import { createIncidentReport } from '../api/api';
 
 export default function Form() {
     const methods = useForm();
+    const navigate = useNavigate();
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [incidentData, setIncidentData] = useState({
@@ -31,6 +33,8 @@ export default function Form() {
             setIsLoading(true);
             const response = await createIncidentReport(data);
             console.log('Incident report created:', response);
+            const reportId = response.data.reportId;
+            navigate(`/pantau-pengaduan/${reportId}`);
         } catch (error) {
             console.error('Error creating incident report:', error);
             setError(error.message);
@@ -40,7 +44,7 @@ export default function Form() {
     };
 
     if (isLoading) {
-        return <div>Loading...</div>;
+        return <div className='mx-auto'>Loading...</div>;
     }
 
     return (
