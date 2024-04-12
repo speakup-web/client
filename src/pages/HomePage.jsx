@@ -1,13 +1,13 @@
-import { About } from '../components/About'
-import { Information } from '../components/Information'
+import { About } from '../components/About';
+import { Information } from '../components/Information';
 
-export default function Home() {
+export function HomePage() {
   return (
     <>
       <main>
-        <About/>
-        <Information/>
+        <About />
+        <Information />
       </main>
     </>
-  )
+  );
 }
