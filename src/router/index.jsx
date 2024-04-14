@@ -1,25 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
-import Layout from '../containers/Layout';
-// import Home from ;
-// import FormPengaduan from '../pages/FormPengaduan';
-// import LaporanTerkirim = lazy(() => import('../pages/LaporanTerkirim'));
-// const SignIn = lazy(() => import('../pages/SignIn'));
-// const PantauPengaduan = lazy(() => import('../pages/PantauPengaduan'));
-// const AdminDashboardHome = lazy(() =>
-//   import('../pages/dashboard/admin/AdminDashboardHome')
-// );
-// const SatgasDashboardHome = lazy(() =>
-//   import('../pages/dashboard/satgas/SatgasDashboardHome')
-// );
-// const DaftarPengaduan = lazy(() =>
-//   import('../pages/dashboard/admin/DaftarPengaduan')
-// );
-// const DaftarSatgas = lazy(() =>
-//   import('../pages/dashboard/admin/DaftarSatgas')
-// );
-// const StatusPengaduan = lazy(() =>
-//   import('../pages/dashboard/admin/StatusPengaduan')
-// );
+import { Layout } from '../containers/Layout';
+import { ProtectedRoute } from '../components/ProtectedRoute';
+import { DashboardLayout } from '../containers/dashboard/DashboardLayout';
 
 export const router = createBrowserRouter([
   {
@@ -56,54 +38,94 @@ export const router = createBrowserRouter([
       },
     ],
   },
-  // {
-  //   path: '/lapor',
-  //   element: <FormPengaduan />,
-  // },
-  // {
-  //   path: '/laporan-terkirim',
-  //   element: <LaporanTerkirim />,
-  // },
-  // {
-  //   path: '/pantau-pengaduan',
-  //   element: <PantauPengaduan />,
-  // },
-  // {
-  //   path: '/login',
-  //   element: <SignIn />,
-  // },
-  // {
-  //   path: '/dashboard',
-  //   element: <DashboardLayout />,
-  //   children: [
-  //     {
-  //       path: 'admin',
-  //       element: <AdminDashboardHome />,
-  //     },
-  //     {
-  //       path: 'admin/daftar-pengaduan',
-  //       element: <DaftarPengaduan />,
-  //     },
-  //     {
-  //       path: 'admin/status-pengaduan',
-  //       element: <StatusPengaduan />,
-  //     },
-  //     {
-  //       path: 'admin/daftar-satgas',
-  //       element: <DaftarSatgas />,
-  //     },
-  //     {
-  //       path: 'satgas',
-  //       element: <SatgasDashboardHome />,
-  //     },
-  //     {
-  //       path: 'satgas/daftar-pengaduan',
-  //       element: <DaftarPengaduan />,
-  //     },
-  //     {
-  //       path: 'satgas/status-pengaduan',
-  //       element: <StatusPengaduan />,
-  //     },
-  //   ],
-  // },
+  {
+    path: '/login',
+    async lazy() {
+      let { SignIn } = await import('../pages/SignIn');
+      return { Component: SignIn };
+    },
+  },
+  {
+    path: '/dashboard/admin',
+    element: (
+      <ProtectedRoute userRole="admin">
+        <DashboardLayout />
+      </ProtectedRoute>
+    ),
+    children: [
+      {
+        index: true,
+        async lazy() {
+          let { AdminDashboardHome } = await import(
+            '../pages/dashboard/admin/AdminDashboardHome'
+          );
+          return { Component: AdminDashboardHome };
+        },
+      },
+      {
+        path: 'daftar-pengaduan',
+        async lazy() {
+          let { StatusPengaduan } = await import(
+            '../pages/dashboard/admin/StatusPengaduan'
+          );
+          return { Component: StatusPengaduan };
+        },
+      },
+      {
+        path: 'detail-pengaduan/:id',
+        async lazy() {
+          let { DetailLaporan } = await import(
+            '../pages/laporan/DetailLaporan'
+          );
+          return { Component: DetailLaporan };
+        },
+      },
+      {
+        path: 'daftar-satgas',
+        async lazy() {
+          let { DaftarSatgas } = await import(
+            '../pages/dashboard/admin/DaftarSatgas'
+          );
+          return { Component: DaftarSatgas };
+        },
+      },
+    ],
+  },
+  {
+    path: '/dashboard/taskforce',
+    element: (
+      <ProtectedRoute userRole="taskforce">
+        <DashboardLayout />
+      </ProtectedRoute>
+    ),
+    children: [
+      {
+        index: true,
+        async lazy() {
+          let { SatgasDashboardHome } = await import(
+            '../pages/dashboard/satgas/SatgasDashboardHome'
+          );
+          return { Component: SatgasDashboardHome };
+        },
+      },
+      {
+        path: 'detail-pengaduan/:id',
+        async lazy() {
+          let { DetailLaporan } = await import(
+            '../pages/laporan/DetailLaporan'
+          );
+          return { Component: DetailLaporan };
+        },
+      },
+      {
+        path: 'daftar-pengaduan',
+        async lazy() {
+          let { StatusPengaduan } = await import(
+            '../pages/dashboard/admin/StatusPengaduan'
+          );
+          return { Component: StatusPengaduan };
+        },
+      },
+    ],
+  },
 ]);

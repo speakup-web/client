@@ -10,7 +10,7 @@ export function FormPengaduan() {
   const navigate = useNavigate();
   const { handleSubmit, register, setValue, reset } = useForm();
 
-  const onSubmit = async (formData) => {
+  async function onSubmit(formData) {
     try {
       const {
         data: { reportId },
@@ -21,7 +21,7 @@ export function FormPengaduan() {
       const { data } = err.response;
       alert(data.message);
     }
-  };
+  }
 
   return (
     <section className="max-w-screen-lg mx-auto mt-1 px-4 sm:px-6">

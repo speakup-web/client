@@ -1,17 +1,13 @@
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, Navigate } from 'react-router-dom';
 import LogoLaporan from './../assets/logo/Mail.svg';
 import { FaArrowRightLong } from 'react-icons/fa6';
-import { useEffect } from 'react';
 
 export function LaporanTerkirim() {
   const location = useLocation();
-  const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!location.state) {
-      navigate('/lapor');
-    }
-  }, [location]);
+  if (!location.state) {
+    return <Navigate to="/lapor" replace={true} />;
+  }
 
   return (
     <section

@@ -5,7 +5,7 @@ import Footer from '../components/ui/Footer';
 import Hero from '../components/ui/Hero';
 import { ContactUs } from '../components/ui/ContactUs';
 
-export default function Layout() {
+export function Layout() {
   return (
     <>
       <Header />

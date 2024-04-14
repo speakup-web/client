@@ -12,11 +12,6 @@ export const sidebarMenu = [
     icon: <TbMailDown size={20} />,
   },
   {
-    name: 'Status Pengaduan',
-    link: '/dashboard/admin/status-pengaduan',
-    icon: <LuClipboardList size={20} />,
-  },
-  {
     name: 'Daftar Satgas',
     link: '/dashboard/admin/daftar-satgas',
     icon: <LuUsers2 size={20} />,
@@ -26,18 +21,13 @@ export const sidebarMenu = [
 export const sidebarMenuSatgas = [
   {
     name: 'Home',
-    link: '/dashboard/satgas',
+    link: '/dashboard/taskforce',
     icon: <AiOutlineHome size={20} />,
   },
   {
     name: 'Daftar Pengaduan',
-    link: '/dashboard/satgas/daftar-pengaduan',
+    link: '/dashboard/taskforce/daftar-pengaduan',
     icon: <TbMailDown size={20} />,
-  },
-  {
-    name: 'Status Pengaduan',
-    link: '/dashboard/satgas/status-pengaduan',
-    icon: <LuClipboardList size={20} />,
   },
 ];
 

@@ -1,12 +1,19 @@
-import React from "react";
-import AllStatusPengaduanTable from "../tables/AllStatusPengaduanTable";
-import NewPengaduanTable from "../tables/NewPengaduanTable";
-import PengaduanInProgressTable from "../tables/PengaduanInProgressTable";
-import PengaduanSelesaiTable from "../tables/PengaduanSelesaiTable";
-import PengaduanCancelTable from "../tables/PengaduanCancelTable";
+import AllStatusPengaduanTable from '../tables/AllStatusPengaduanTable';
+import PengaduanInProgressTable from '../tables/PengaduanInProgressTable';
+import PengaduanSelesaiTable from '../tables/PengaduanSelesaiTable';
+import PengaduanCancelTable from '../tables/PengaduanCancelTable';
 
-const Tabs = ({ color }) => {
-  const [openTab, setOpenTab] = React.useState(1);
+export default function StatusTab({
+  openTab,
+  setOpenTab,
+  submitedReports,
+  onProgressReports,
+  doneReports,
+  caneledReports,
+  link,
+}) {
+  const color = 'indigo';
+
   return (
     <>
       <div className="flex flex-wrap bg-white mt-8 py-4 px-6 rounded-lg">
@@ -16,132 +23,110 @@ const Tabs = ({ color }) => {
             role="tablist"
           >
             <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
-              <a
+              <button
                 className={
-                  "text-xs font-bold uppercase px-5 py-3 rounded block leading-normal " +
+                  'text-xs font-bold uppercase px-5 py-3 rounded block leading-normal ' +
                   (openTab === 1
-                    ? "text-white bg-" + color + "-500"
-                    : "text-" + color + "-500 bg-white")
+                    ? 'text-white bg-' + color + '-500'
+                    : 'text-' + color + '-500 bg-white')
                 }
-                onClick={e => {
+                onClick={(e) => {
                   e.preventDefault();
                   setOpenTab(1);
                 }}
                 data-toggle="tab"
-                href="#link1"
                 role="tablist"
               >
-                All
-              </a>
+                Laporan Terkirim
+              </button>
             </li>
             <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
-              <a
+              <button
                 className={
-                  "text-xs font-bold uppercase px-5 py-3 rounded block leading-normal " +
-                  (openTab === 2
-                    ? "text-white bg-" + color + "-500"
-                    : "text-" + color + "-500 bg-white")
-                }
-                onClick={e => {
-                  e.preventDefault();
-                  setOpenTab(2);
-                }}
-                data-toggle="tab"
-                href="#link2"
-                role="tablist"
-              >
-                 New
-              </a>
-            </li>
-            <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
-              <a
-                className={
-                  "text-xs font-bold uppercase px-5 py-3 rounded block leading-normal " +
+                  'text-xs font-bold uppercase px-5 py-3 rounded block leading-normal ' +
                   (openTab === 3
-                    ? "text-white bg-" + color + "-500"
-                    : "text-" + color + "-500 bg-white")
+                    ? 'text-white bg-' + color + '-500'
+                    : 'text-' + color + '-500 bg-white')
                 }
-                onClick={e => {
+                onClick={(e) => {
                   e.preventDefault();
                   setOpenTab(3);
                 }}
                 data-toggle="tab"
-                href="#link3"
                 role="tablist"
               >
-                 In Progress
-              </a>
+                Laporan Diproses
+              </button>
             </li>
             <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
-              <a
+              <button
                 className={
-                  "text-xs font-bold uppercase px-5 py-3 rounded block leading-normal " +
+                  'text-xs font-bold uppercase px-5 py-3 rounded block leading-normal ' +
                   (openTab === 4
-                    ? "text-white bg-" + color + "-500"
-                    : "text-" + color + "-500 bg-white")
+                    ? 'text-white bg-' + color + '-500'
+                    : 'text-' + color + '-500 bg-white')
                 }
-                onClick={e => {
+                onClick={(e) => {
                   e.preventDefault();
                   setOpenTab(4);
                 }}
                 data-toggle="tab"
-                href="#link4"
                 role="tablist"
               >
-                 Done
-              </a>
+                Laporan Selesai
+              </button>
             </li>
             <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
-              <a
+              <button
                 className={
-                  "text-xs font-bold uppercase px-5 py-3 rounded block leading-normal " +
+                  'text-xs font-bold uppercase px-5 py-3 rounded block leading-normal ' +
                   (openTab === 5
-                    ? "text-white bg-" + color + "-500"
-                    : "text-" + color + "-500 bg-white")
+                    ? 'text-white bg-' + color + '-500'
+                    : 'text-' + color + '-500 bg-white')
                 }
-                onClick={e => {
+                onClick={(e) => {
                   e.preventDefault();
                   setOpenTab(5);
                 }}
                 data-toggle="tab"
-                href="#link5"
                 role="tablist"
               >
-                 CANCELLED
-              </a>
+                Laporan Dibatalkan
+              </button>
             </li>
           </ul>
           <div className="relative flex flex-col min-w-0 break-words bg-white w-full">
             <div className="py-5 flex-auto">
               <div className="tab-content tab-space">
-                <div className={openTab === 1 ? "block" : "hidden"} id="link1">
-                  <AllStatusPengaduanTable/>
+                <div className={openTab === 1 ? 'block' : 'hidden'} id="link1">
+                  <AllStatusPengaduanTable
+                    submitedReports={submitedReports ?? []}
+                    link={link}
+                  />
                 </div>
-                <div className={openTab === 2 ? "block" : "hidden"} id="link2">
-                 <NewPengaduanTable/>
+                <div className={openTab === 3 ? 'block' : 'hidden'} id="link3">
+                  <PengaduanInProgressTable
+                    onProgressReports={onProgressReports ?? []}
+                    link={link}
+                  />
                 </div>
-                <div className={openTab === 3 ? "block" : "hidden"} id="link3">
-                  <PengaduanInProgressTable/>
+                <div className={openTab === 4 ? 'block' : 'hidden'} id="link4">
+                  <PengaduanSelesaiTable
+                    doneReports={doneReports ?? []}
+                    link={link}
+                  />
                 </div>
-                <div className={openTab === 4 ? "block" : "hidden"} id="link4">
-                  <PengaduanSelesaiTable/>
-                </div>
-                <div className={openTab === 5 ? "block" : "hidden"} id="link5">
-                  <PengaduanCancelTable/>
+                <div className={openTab === 5 ? 'block' : 'hidden'} id="link5">
+                  <PengaduanCancelTable
+                    caneledReports={caneledReports ?? []}
+                    link={link}
+                  />
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </>
-  );
-};
-
-export default function StatusTab() {
-  return (
-    <>
-      <Tabs color="indigo" />;
     </>
   );
 }

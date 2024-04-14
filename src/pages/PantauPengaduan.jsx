@@ -21,7 +21,7 @@ export function PantauPengaduan() {
     }
 
     fetchData();
-  }, [report]);
+  }, []);
 
   return (
     <section className="h-full max-w-screen-lg mx-auto mt-1 mb-10 px-4 sm:px-6">
