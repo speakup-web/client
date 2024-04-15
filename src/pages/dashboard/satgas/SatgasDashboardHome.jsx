@@ -75,7 +75,7 @@ export function SatgasDashboardHome() {
           </div>
           <div className="flex items-center justify-start my-4">
             <a
-              href="/dashboard/admin/daftar-pengaduan"
+              href="/dashboard/taskforce/daftar-pengaduan"
               className="flex items-center px-4 py-2 text-sm font-medium text-indigo-600"
             >
               View More
@@ -95,7 +95,7 @@ export function SatgasDashboardHome() {
           </div>
           <div className="flex items-center justify-start my-4">
             <a
-              href="/dashboard/admin/status-pengaduan"
+              href="/dashboard/taskforce/daftar-pengaduan"
               className="flex items-center px-4 py-2 text-sm font-medium text-indigo-600"
             >
               View More
