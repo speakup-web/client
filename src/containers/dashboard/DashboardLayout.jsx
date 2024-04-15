@@ -1,54 +1,34 @@
-import React from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
-import routes from './../../routes';
-import DashboardNavbar from '../../components/navigation/navbar/DashboardNavbar';
-import DashboardContent from './DashboardContent';
-import DashboardSidebar from '../../components/navigation/sidebar/DashboardSidebar';
-import SatgasDashboardSidebar from '../../components/navigation/sidebar/SatgasDashboardSidebar';
 
-function DashboardLayout({ accessToken }) {
-  const dashboardRoutes = routes.find(route => route.path === '/dashboard').routes;
+import { useContext } from 'react';
+import { Outlet } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthContext';
+import { DashboardNavbar } from '../../components/navigation/navbar/DashboardNavbar';
+import { DashboardSidebar } from '../../components/navigation/sidebar/DashboardSidebar';
+import { SatgasDashboardSidebar } from '../../components/navigation/sidebar/SatgasDashboardSidebar';
 
-  // Check if accessToken is available before rendering the layout
-  if (!accessToken) {
-    return <Navigate to="/login" />;
-  }
+export function DashboardLayout() {
+  const { auth } = useContext(AuthContext);
 
   return (
     <div className="flex h-full bg-gray-100">
-      {/* Sidebar */}
-      <Routes>
-        {dashboardRoutes.map((subRoute, i) => (
-          <Route
-            key={i}
-            path={`/${subRoute.path}`}
-            element={
-              subRoute.path.startsWith('/admin') ? (
-                <DashboardSidebar />
-              ) : (
-                <SatgasDashboardSidebar />
-              )
-            }
-          />
-        ))}
-      </Routes>
+      {auth?.user.role === 'admin' ? (
+        <DashboardSidebar />
+      ) : (
+        <SatgasDashboardSidebar />
+      )}
 
-      {/* Content with full width */}
       <div className="flex flex-col w-full">
-        {/* Navbar */}
         <DashboardNavbar />
-
-        {/* Content */}
-        <DashboardContent>
-          <Routes>
-            {dashboardRoutes.map((route, i) => (
-              <Route key={i} path={`/${route.path}`} element={<route.component />} />
-            ))}
-          </Routes>
-        </DashboardContent>
+        <main className="sticky flex max-w-screen-2xl">
+          <div className="py-6">
+            <div className="mx-auto px-4 sm:px-6 md:px-8">
+              <div className="py-4">
+                <Outlet />
+              </div>
+            </div>
+          </div>
+        </main>
       </div>
     </div>
   );
 }
-
-export default DashboardLayout;
