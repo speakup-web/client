@@ -3,6 +3,8 @@ import { TbMailDown } from 'react-icons/tb';
 import { LuClipboardList } from 'react-icons/lu';
 import { LuUsers2 } from 'react-icons/lu';
 import { HomeIcon, UsersIcon } from '@heroicons/react/24/outline';
+import { CiSettings } from "react-icons/ci";
+
 
 export const sidebarMenu = [
   { name: 'Home', link: '/dashboard/admin', icon: <AiOutlineHome size={20} /> },
@@ -16,6 +18,11 @@ export const sidebarMenu = [
     link: '/dashboard/admin/daftar-satgas',
     icon: <LuUsers2 size={20} />,
   },
+  {
+    name: 'Settings',
+    link: '/dashboard/admin/settings',
+    icon: <CiSettings size={20} />,
+  },
 ];
 
 export const sidebarMenuSatgas = [
@@ -28,6 +35,11 @@ export const sidebarMenuSatgas = [
     name: 'Daftar Pengaduan',
     link: '/dashboard/taskforce/daftar-pengaduan',
     icon: <TbMailDown size={20} />,
+  },
+  {
+    name: 'Daftar Pengaduan',
+    link: '/dashboard/taskforce/settings',
+    icon: <CiSettings size={20} />,
   },
 ];
 

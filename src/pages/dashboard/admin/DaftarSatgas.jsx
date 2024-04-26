@@ -27,7 +27,7 @@ export function DaftarSatgas() {
         <div className="border-b-2 w-16 border-[#0B497B] pt-4" />
       </div>
       <div className="flex flex-col md:flex-row my-4 py-2 space-y-4 md:space-y-0 md:space-x-6">
-        <div className="lg:w-full md:w-1/2">
+        <div className="p-4 border bg-white rounded-lg" style={{ width: '1000px', height: 'auto', padding: '30px' }}>
           <FormSatgas
             incrementCounter={() => {
               setCounter(counter + 1);

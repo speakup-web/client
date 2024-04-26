@@ -89,6 +89,24 @@ export const router = createBrowserRouter([
           return { Component: DaftarSatgas };
         },
       },
+      {
+        path: 'settings',
+        async lazy() {
+          let { SettingProfile } = await import(
+            '../pages/dashboard/admin/SettingProfile'
+          );
+          return { Component: SettingProfile };
+        },
+      },
+      {
+        path: 'edit-satgas',
+        async lazy() {
+          let { EditSatgas } = await import(
+            '../pages/dashboard/admin/EditSatgas'
+          );
+          return { Component: EditSatgas };
+        },
+      },
     ],
   },
   {
@@ -124,6 +142,15 @@ export const router = createBrowserRouter([
             '../pages/dashboard/admin/StatusPengaduan'
           );
           return { Component: StatusPengaduan };
+        },
+      },
+      {
+        path: 'settings',
+        async lazy() {
+          let { SettingProfile } = await import(
+            '../pages/dashboard/satgas/SettingProfile'
+          );
+          return { Component: SettingProfile };
         },
       },
     ],
