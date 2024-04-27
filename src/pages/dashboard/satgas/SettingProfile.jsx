@@ -22,6 +22,19 @@ export function SettingProfile() {
                 />
               </div>
               <div className="mb-5">
+                <label htmlFor="email" className="block text-sm font-medium text-blue-500 mb-2">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  autoComplete="email"
+                  disabled
+                  className="mt-1 p-2 border border-gray-300 rounded-md w-full focus:ring-blue-500 focus:border-blue-500 dark:border-blue-300 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                />
+               </div>
+              <div className="mb-5">
                 <label htmlFor="password" className="block text-sm font-medium text-blue-500 mb-2">
                   Password
                 </label>

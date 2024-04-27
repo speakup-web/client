@@ -30,6 +30,7 @@ export function SettingProfile() {
                 name="email"
                 id="email"
                 autoComplete="email"
+                disabled
                 className="mt-1 p-2 border border-gray-300 rounded-md w-full focus:ring-blue-500 focus:border-blue-500 dark:border-blue-300 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500"
               />
             </div>

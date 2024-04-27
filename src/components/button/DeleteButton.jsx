@@ -1,11 +1,9 @@
-import { MdOutlineDelete } from "react-icons/md";
-
 export function DeleteButton() {
     return (
-        <div
-            className="w-10 h-10 border border-red-600 hover:bg-red-600 font-bold py-2 rounded justify-center items-center inline-flex"
+        <button
+            className="w-20 h-10 bg-red-600 hover:bg-red-700 text-white font-bold py-1 px-2 rounded"
         >
-            <MdOutlineDelete className="h-5 w-5 text-red-500 hover:text-white text-center" />
-        </div>
-    )
+            Delete
+        </button>
+    );
 }

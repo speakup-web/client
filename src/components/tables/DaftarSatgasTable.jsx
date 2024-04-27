@@ -30,7 +30,7 @@ function DaftarSatgasTable({ taskforces }) {
                   <Link to={`/dashboard/admin/edit-satgas`}>
                     <EditButton/>
                   </Link>
-                  <DeleteButton/>
+                    <DeleteButton/>
                 </td>
               </tr>
             ))
