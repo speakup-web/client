@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export function EditSatgas() {
     return (
       <main className="max-w-screen-lg mx-auto mt-1 px-4 sm:px-6">
@@ -50,6 +52,12 @@ export function EditSatgas() {
                 className="bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 px-4 mt-6 rounded-lg"
               >
                 Simpan
+              </button>
+              <button
+                type="submit"
+                className="border border-indigo-500 text-indigo-600 font-semibold py-2 px-4 mt-6 mx-3 rounded-lg"
+              >
+                <Link to={`/dashboard/admin/daftar-satgas`}>Cancel</Link>
               </button>
             </form>
           </div>

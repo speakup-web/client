@@ -19,7 +19,7 @@ export const sidebarMenu = [
     icon: <LuUsers2 size={20} />,
   },
   {
-    name: 'Settings',
+    name: 'Setting Profile',
     link: '/dashboard/admin/settings',
     icon: <CiSettings size={20} />,
   },
@@ -37,7 +37,7 @@ export const sidebarMenuSatgas = [
     icon: <TbMailDown size={20} />,
   },
   {
-    name: 'Daftar Pengaduan',
+    name: 'Setting Profile',
     link: '/dashboard/taskforce/settings',
     icon: <CiSettings size={20} />,
   },

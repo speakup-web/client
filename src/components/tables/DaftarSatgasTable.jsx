@@ -1,6 +1,6 @@
-import { FiEdit2 } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
-import { MdOutlineDelete } from "react-icons/md";
+import { EditButton } from '../button/EditButton';
+import { DeleteButton } from '../button/DeleteButton';
 
 
 function DaftarSatgasTable({ taskforces }) {
@@ -28,19 +28,9 @@ function DaftarSatgasTable({ taskforces }) {
                 <td className="px-6 py-4 whitespace-nowrap">{taskforce.email}</td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <Link to={`/dashboard/admin/edit-satgas`}>
-                    <div
-                      className="border border-indigo-600 hover:bg-indigo-600 focus:bg-indigo-600 focus:text-white hover:text-white font-bold py-2 px-4 rounded mr-3"
-                      style={{ width: '60px', height: '40px', display: 'inline-flex', alignItems: 'center' }}
-                    >
-                      <FiEdit2 className="h-5 w-5 mr-2 text-indigo-600 hover:text-white" />
-                    </div>
+                    <EditButton/>
                   </Link>
-                  <div
-                    className="border border-red-600 hover:bg-red-600 text-white hover:text-white font-bold py-2 px-4 rounded"
-                    style={{ width: '60px', height: '40px', display: 'inline-flex', alignItems: 'center' }}
-                  >
-                    <MdOutlineDelete className="h-5 w-8 mr-2 text-red-500 hover:text-white" />
-                  </div>
+                  <DeleteButton/>
                 </td>
               </tr>
             ))
