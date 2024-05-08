@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import { EditButton } from '../button/EditButton';
 import { DeleteButton } from '../button/DeleteButton';
 
-
 function DaftarSatgasTable({ taskforces }) {
   return (
     <div className="overflow-x-auto">
@@ -27,10 +26,10 @@ function DaftarSatgasTable({ taskforces }) {
                 <td className="px-6 py-4 whitespace-nowrap">{taskforce.name}</td>
                 <td className="px-6 py-4 whitespace-nowrap">{taskforce.email}</td>
                 <td className="px-6 py-4 whitespace-nowrap">
-                  <Link to={`/dashboard/admin/edit-satgas`}>
+                  <Link to={`/dashboard/admin/edit-taskforce?email=${taskforce.email}`}>
                     <EditButton/>
                   </Link>
-                    <DeleteButton/>
+                  <DeleteButton email={taskforce.email} />
                 </td>
               </tr>
             ))

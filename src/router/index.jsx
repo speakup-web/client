@@ -99,14 +99,14 @@ export const router = createBrowserRouter([
         },
       },
       {
-        path: 'edit-satgas',
+        path: 'edit-taskforce',
         async lazy() {
           let { EditSatgas } = await import(
             '../pages/dashboard/admin/EditSatgas'
           );
           return { Component: EditSatgas };
         },
-      },
+      },      
     ],
   },
   {
