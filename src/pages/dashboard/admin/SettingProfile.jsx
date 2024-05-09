@@ -15,8 +15,8 @@ export function SettingProfileAdmin() {
   useEffect(() => {
     const fetchUserProfile = async () => {
       try {
-        const userData = await userService.getUserProfile(auth.accessToken);
-        setUserData(userData);
+        const getUserProfile = await userService.getUserProfile(auth.accessToken);
+        setUserData(getUserProfile.data);
         setLoading(false);
       } catch (error) {
         console.error('Error fetching user profile:', error);
@@ -40,7 +40,7 @@ export function SettingProfileAdmin() {
     try {
       await userService.putUserProfile(userData, auth.accessToken);
       alert('Profile updated successfully!');
-      navigate('/dashboard/admin'); 
+      navigate('/dashboard/admin');
     } catch (error) {
       console.error('Error updating profile:', error);
     }
@@ -68,7 +68,7 @@ export function SettingProfileAdmin() {
                 type="text"
                 name="name"
                 id="name"
-                defaultValue={auth?.user.name}
+                value={userData.name}
                 onChange={handleChange}
                 className="mt-1 p-2 border border-gray-300 rounded-md w-full focus:ring-blue-500 focus:border-blue-500 dark:border-blue-300 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500"
               />
