@@ -31,17 +31,14 @@ export const userService = {
       .then((res) => res.data);
   },
 
-  putTaskforce(email, taskForce, accessToken) {
+  putTaskforce(email, data, accessToken) {
     return instance
-      .put(
-        `/users/task-force/${email}`,
-        { taskForce },
-        {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
-        }
-      )
+      .put(`/users/task-force/${email}`, data, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          'Content-Type': 'application/json'
+        },
+      })
       .then((res) => res.data);
   },
 

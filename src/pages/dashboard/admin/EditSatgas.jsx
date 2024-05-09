@@ -1,50 +1,49 @@
-import { useContext, useEffect, useState } from 'react';
-import { AuthContext } from '../../../contexts/AuthContext';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { FormProvider, useForm } from 'react-hook-form';
-import { userService } from './../../../api/userService';
+import { AuthContext } from '../../../contexts/AuthContext';
+import { userService } from '../../../api/userService';
 
 export function EditSatgas() {
-  const navigate = useNavigate();
   const { auth } = useContext(AuthContext);
-  const email = new URLSearchParams(location.search).get('email');
-  const [taskforce, setTaskforce] = useState({
+  const [formData, setFormData] = useState({
     name: '',
-    password: '',
+    password: ''
   });
+  const navigate = useNavigate();
+  const emailParam = new URLSearchParams(location.search).get('email');
 
   useEffect(() => {
     const fetchTaskforceByEmail = async () => {
       try {
-        const { data } = await userService.getTaskforceByEmail(email, auth.accessToken);
-        const taskforceByEmail = data.results.find(taskforce => taskforce.email === email);
-        setTaskforce(taskforceByEmail);
+        const { data } = await userService.getTaskforceByEmail(emailParam, auth.accessToken);
+        // Filter the task force data based on the email
+        const taskforceByEmail = data.results.find(taskforce => taskforce.email === emailParam);
+        setFormData(taskforceByEmail);
       } catch (error) {
         console.error('Error fetching taskforce:', error);
+        // Handle error appropriately (e.g., show error message)
       }
     };
 
     fetchTaskforceByEmail();
-  }, [email, auth.accessToken]);
+  }, [emailParam, auth.accessToken]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
-      const updatedTaskForce = {
-        ...taskforce, // Spread the existing state
-        name: e.target.name.value, // Use e.target to get form input values
-        password: e.target.password.value,
-      };
-
-      const data = await userService.putTaskforce(email, updatedTaskForce, auth.accessToken);
-      console.log('Taskforce profile updated:', data);
-      
-      setTaskforce(updatedTaskForce);
+      await userService.putTaskforce(emailParam, formData, auth.accessToken); // Panggil putTaskforce
       alert('Taskforce account updated successfully!');
-      navigate('/dashboard/admin/daftar-satgas');
+      // Implement success logic (optional): redirect, message, etc.
+      navigate('/dashboard/admin/daftar-satgas'); 
+      // Redirect atau lakukan tindakan lain setelah berhasil
     } catch (error) {
-      console.error('Error updating taskforce profile:', error);
+      console.error('Error:', error);
+      // Handle error
     }
   };
 
@@ -66,7 +65,8 @@ export function EditSatgas() {
                 type="text"
                 name="name"
                 id="name"
-                defaultValue={taskforce.name}
+                value={formData.name}
+                onChange={handleChange}
                 className="mt-1 p-2 border border-gray-300 rounded-md w-full focus:ring-blue-500 focus:border-blue-500 dark:border-blue-300 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500"
               />
             </div>
@@ -78,7 +78,7 @@ export function EditSatgas() {
                 type="email"
                 name="email"
                 id="email"
-                value={email}
+                value={emailParam}
                 disabled
                 className="mt-1 p-2 border border-gray-300 rounded-md w-full focus:ring-blue-500 focus:border-blue-500 dark:border-blue-300 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500"
               />
@@ -91,7 +91,8 @@ export function EditSatgas() {
                 type="password"
                 name="password"
                 id="password"
-                defaultValue={taskforce.password}
+                value={formData.password}
+                onChange={handleChange}
                 className="mt-1 p-2 border border-gray-300 rounded-md w-full focus:ring-blue-500 focus:border-blue-500 dark:border-blue-300 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500"
               />
             </div>
