@@ -92,10 +92,10 @@ export const router = createBrowserRouter([
       {
         path: 'settings',
         async lazy() {
-          let { SettingProfile } = await import(
+          let { SettingProfileAdmin } = await import(
             '../pages/dashboard/admin/SettingProfile'
           );
-          return { Component: SettingProfile };
+          return { Component: SettingProfileAdmin };
         },
       },
       {
@@ -147,10 +147,10 @@ export const router = createBrowserRouter([
       {
         path: 'settings',
         async lazy() {
-          let { SettingProfile } = await import(
+          let { SettingProfileSatgas } = await import(
             '../pages/dashboard/satgas/SettingProfile'
           );
-          return { Component: SettingProfile };
+          return { Component: SettingProfileSatgas };
         },
       },
     ],

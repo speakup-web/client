@@ -38,9 +38,7 @@ export function EditSatgas() {
     try {
       await userService.putTaskforce(emailParam, formData, auth.accessToken); // Panggil putTaskforce
       alert('Taskforce account updated successfully!');
-      // Implement success logic (optional): redirect, message, etc.
       navigate('/dashboard/admin/daftar-satgas'); 
-      // Redirect atau lakukan tindakan lain setelah berhasil
     } catch (error) {
       console.error('Error:', error);
       // Handle error

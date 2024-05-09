@@ -54,4 +54,25 @@ export const userService = {
       )
       .then((res) => res.data);
   },
+
+  getUserProfile(accessToken) {
+    return instance
+      .get(`/users/profile`, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      })
+      .then((res) => res.data);
+  },
+
+  putUserProfile(data, accessToken) {
+    return instance
+      .put(`/users/profile`, data, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          'Content-Type': 'application/json'
+        },
+      })
+      .then((res) => res.data);
+  },
 };
