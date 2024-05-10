@@ -23,7 +23,7 @@ export function SettingProfileAdmin() {
         setLoading(false);
       }
     };
-  
+
     fetchUserProfile();
   }, [auth.accessToken]);
 
@@ -43,6 +43,8 @@ export function SettingProfileAdmin() {
       navigate('/dashboard/admin');
     } catch (error) {
       console.error('Error updating profile:', error);
+      const errorMessage = error.response.data.message || 'An error occurred while updating profile.';
+      alert(`Failed to update profile: ${errorMessage}`);
     }
   };
 

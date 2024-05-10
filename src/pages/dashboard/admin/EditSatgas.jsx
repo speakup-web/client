@@ -41,7 +41,8 @@ export function EditSatgas() {
       navigate('/dashboard/admin/daftar-satgas'); 
     } catch (error) {
       console.error('Error:', error);
-      // Handle error
+      const errorMessage = error.response?.data?.message || 'An error occurred while updating taskforce account.';
+      alert(`Failed to update taskforce account: ${errorMessage}`);
     }
   };
 
