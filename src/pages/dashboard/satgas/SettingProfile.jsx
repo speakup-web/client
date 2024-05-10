@@ -40,7 +40,7 @@ export function SettingProfileSatgas() {
     try {
       await userService.putUserProfile(userData, auth.accessToken);
       alert('Profile updated successfully!');
-      navigate('/dashboard/admin');
+      navigate('/dashboard/taskforce');
     } catch (error) {
       console.error('Error updating profile:', error);
       const errorMessage = error.response.data.message || 'An error occurred while updating profile.';
