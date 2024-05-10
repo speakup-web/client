@@ -35,7 +35,7 @@ function DaftarPengaduanTable({ reports }) {
           </tr>
         </thead>
         <tbody className="bg-white divide-y divide-gray-200">
-          {reports ? (
+          {reports.length ? (
             reports.map((report) => (
               <tr key={report.id}>
                 <td className="px-6 py-4 whitespace-nowrap">
